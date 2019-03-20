@@ -2,20 +2,47 @@ import React from 'react';
 import { Animated, Keyboard, StyleSheet, KeyboardAvoidingView} from 'react-native';
 import { Image, Input, Button } from 'react-native-elements';
 
-
 class SignUpScreen extends React.Component {
   static navigationOptions = {
     title: 'Inscrever-se',
   };
+
+  constructor(props) {
+    super(props);
+    this.imageHeight = new Animated.Value(250);
+  }
+
+  componentWillMount () {
+    this.keyboardDidShowSub = Keyboard.addListener('keyboardDidShow', this.keyboardDidShow);
+    this.keyboardDidHideSub = Keyboard.addListener('keyboardDidHide', this.keyboardDidHide);
+  }
+
+  componentWillUnmount() {
+    this.keyboardDidShowSub.remove();
+    this.keyboardDidHideSub.remove();
+  }
+
+  keyboardDidShow = (event) => {
+    Animated.timing(this.imageHeight, {
+      duration: 50,
+      toValue: 100,
+    }).start();
+  };
+
+  keyboardDidHide = (event) => {
+    Animated.timing(this.imageHeight, {
+      duration: 50,
+      toValue: 250,
+    }).start();
+  }
+
   render() {
     return(
       <KeyboardAvoidingView 
         style={styles.container}
-        
+        behavior='padding'
       >
-        <Image 
-          source={ require('../assets/images/logo.png')}
-        />
+        <Animated.Image source={require('../assets/images/logo.png')} style={{ height: this.imageHeight }} />
         <Input 
           placeholder='Nome'
           leftIcon={{ type: 'font-awesome', name: 'user' }}
@@ -59,7 +86,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flex: 1,
     padding: 15,
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems:'center',
   },
 
