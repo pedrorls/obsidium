@@ -30,3 +30,23 @@ const SignUp = ({ onNameChange, onLastNameChange, onEmailChange, onPassChange, o
 
 
 export default SignUp;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 15,
+    justifyContent: 'space-between',
+    alignItems:'center',
+    backgroundColor: '#fff',
+  },
+
+  loginButton: {
+    width: 300,
+    height: 50,
+    borderRadius: 10,
+
+  },
+  iconStyle: {
+    marginRight: 10,
+  }
+});
