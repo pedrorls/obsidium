@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Button, Input, Image, Text, Icon, SocialIcon } from 'react-native-elements';
+import { View, StyleSheet, Animated, Keyboard } from 'react-native';
+import { Button, Input, Image, Text, SocialIcon } from 'react-native-elements';
 
 
 export default class LinksScreen extends React.Component {
@@ -28,7 +28,7 @@ export default class LinksScreen extends React.Component {
         />
         <Input
           placeholder='Senha'
-          leftIcon={{ type: 'font-awesome', name: 'lock' }}c
+          leftIcon={{ type: 'font-awesome', name: 'lock' }}
           leftIconContainerStyle={styles.iconStyle}
           secureTextEntry={true}
           onChangeText={ password => this.setState({ password }) }
