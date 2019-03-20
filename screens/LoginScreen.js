@@ -52,7 +52,7 @@ export default class LinksScreen extends React.Component {
           title='Inscrever-se'
           type='clear'
           style={styles.loginButton}
-          onPress={ () => this.props.navigate('SignIn ') }
+          onPress={ () => this.props.navigation.navigate('Signup') }
         />
       </View>
     );
