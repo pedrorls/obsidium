@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Animated, Keyboard } from 'react-native';
+import { KeyboardAvoidingView, StyleSheet } from 'react-native';
 import { Button, Input, Image, Text, SocialIcon } from 'react-native-elements';
 
 
@@ -15,7 +15,10 @@ export default class LinksScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView
+        behavior='padding'
+        style={styles.container}
+      >
         <Image 
           source={require('../assets/images/logo.png')}
         />
@@ -54,7 +57,7 @@ export default class LinksScreen extends React.Component {
           style={styles.loginButton}
           onPress={ () => this.props.navigation.navigate('Signup') }
         />
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
