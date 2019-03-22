@@ -8,10 +8,29 @@ export default class LinksScreen extends React.Component {
     title: 'Login',
   };
 
-  state = {
-    email: '',
-    password: '',
+  constructor(props){
+    super(props);
+
+    this.id = '2264498587106890';
+    this.state = {
+      email: '',
+      password: '',
+    };
+    this.navigate = this.props.navigation.navigate;
   }
+
+  facebookLogin = async () => { 
+    const {type, token} =  await Expo.Facebook.logInWithReadPermissionsAsync(this.id, {permissions: [ 'public_profile', 'email'] });   
+    if (type == 'success'){            
+        const response = await fetch(
+            `https://graph.facebook.com/me?access_token=${token}&fields=id,name,email,about,picture`
+        );
+        const userFacebookInfo = await response.json();
+        console.log(userFacebookInfo);
+    }else{
+        console.log("Login cancelado");
+    } 
+}
 
   render() {
     return (
@@ -50,12 +69,13 @@ export default class LinksScreen extends React.Component {
           type='facebook'
           style={styles.loginButton}
           raised={false}
+          onPress={ this.facebookLogin }
         />
         <Button
           title='Inscrever-se'
           type='clear'
           style={styles.loginButton}
-          onPress={ () => this.props.navigation.navigate('Signup') }
+          onPress={ () => this.navigate('Signup') }
         />
       </KeyboardAvoidingView>
     );
