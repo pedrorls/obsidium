@@ -9,7 +9,7 @@ export default class FeedScreen extends React.Component {
   };
 
   onSupportPress() {
-    console.log('Support sended!');
+    console.log('Support!');
   }
 
   onCommentsPress() {
