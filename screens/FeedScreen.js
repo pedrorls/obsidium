@@ -14,6 +14,14 @@ export default class FeedScreen extends React.Component {
       />)
   };
 
+  onProfilePress() {
+    console.log('Profile pressed!');
+  }
+
+  onCardPress() {
+    console.log('Card pressed!');
+  }
+
   onSupportPress() {
     console.log('Support!');
   }
@@ -25,8 +33,10 @@ export default class FeedScreen extends React.Component {
   render() {
     return(
       <Feed
+        onCardPress={this.onCardPress}
         onCommentsPress={this.onCommentsPress}
         onSupportPress={this.onSupportPress}
+        onProfilePress={this.onProfilePress}
       />
     );
   }

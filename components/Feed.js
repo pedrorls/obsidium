@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View, Text } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity } from 'react-native';
 import { Card, ListItem } from 'react-native-elements'
 
 import BadgedIcon from './BadgedIcon';
@@ -80,15 +80,19 @@ const Feed = (props) => {
         {
           list.map((item, id) =>
           <Card>
-            <ListItem
-              key={ item.id }
-              leftAvatar={{ source: { uri: item.avatar_url }}}
-              title={ item.name }
-              subtitle={ item.build }
-            />
-            <View>
-              <Text>{ truncate(item.complain) }</Text>
-            </View>
+            <TouchableOpacity onPress={ props.onProfilePress }>
+              <ListItem
+                key={ item.id }
+                leftAvatar={{ source: { uri: item.avatar_url }}}
+                title={ item.name }
+                subtitle={ item.build }
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={ props.onCardPress }>
+              <View>
+                <Text>{ truncate(item.complain) }</Text>
+              </View>
+            </TouchableOpacity>
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', marginTop: 20 }}>
               <BadgedIcon type="ionicon" name="ios-hand" value={item.supports} text='Apoios' onPress={ props.onSupportPress }/>
               <BadgedIcon type="ionicon" name="ios-chatbubbles" value={item.comments.length} text='Comentários' onPress={ props.onCommentsPress }/>
