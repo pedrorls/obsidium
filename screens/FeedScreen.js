@@ -6,7 +6,7 @@ import Feed from '../components/Feed';
 class FeedScreen extends React.Component {
   static navigationOptions = ({ navigation, screenProps }) => ({
     title: 'Feed',
-    headerRight: <Button onPress={ () => {navigation.push('Post')} } title="Criar Post" buttonStyle={{ backgroundColor: '#FDA50F', marginRight: 14 }}/>
+    headerRight: <Button onPress={ () => {navigation.navigate('Post')} } title="Criar Post" buttonStyle={{ backgroundColor: '#FDA50F', marginRight: 14 }}/>
   });
 
   onProfilePress() {
@@ -26,7 +26,6 @@ class FeedScreen extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return(
       <Feed
         onCardPress={this.onCardPress}
