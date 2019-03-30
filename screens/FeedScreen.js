@@ -1,10 +1,11 @@
 import React from 'react';
 import { Button } from 'react-native-elements';
+import { withNavigation } from 'react-navigation';
 import Feed from '../components/Feed';
 
 
 class FeedScreen extends React.Component {
-  static navigationOptions = ({ navigation, screenProps }) => ({
+  static navigationOptions = ({ navigation }) => ({
     title: 'Feed',
     headerRight: <Button onPress={ () => {navigation.navigate('Post')} } title="Criar Post" buttonStyle={{ backgroundColor: '#FDA50F', marginRight: 14 }}/>
   });
@@ -22,14 +23,14 @@ class FeedScreen extends React.Component {
   }
 
   onCommentsPress() {
-    console.log('Should change to Comment component!')
+    this.props.navigation.navigate('Comment');
   }
 
   render() {
     return(
       <Feed
         onCardPress={this.onCardPress}
-        onCommentsPress={this.onCommentsPress}
+        onCommentsPress={ () => this.onCommentsPress() }
         onSupportPress={this.onSupportPress}
         onProfilePress={this.onProfilePress}
       />
