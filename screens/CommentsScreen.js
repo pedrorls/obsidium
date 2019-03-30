@@ -1,8 +1,11 @@
 import _ from 'lodash';
 import React from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, View, KeyboardAvoidingView } from 'react-native';
+import { Button } from 'react-native-elements';
 
 import Comment from '../components/Comment';
+import TextArea from '../components/CommentArea'
+import styles from '../styles/comment';
 
 export default class Comments extends React.Component {
   static navigationOptions = {
@@ -46,7 +49,7 @@ export default class Comments extends React.Component {
 
   render() {
     return(
-      <View>
+      <KeyboardAvoidingView style={{ flex: 1}} behavior='padding'>
         <ScrollView>
           {
             _.map(this.state.comments, (k, v) =>
@@ -59,8 +62,11 @@ export default class Comments extends React.Component {
             )
           }
         </ScrollView>
-        <View></View>
-      </View>
+        <View style={styles.postCommentStyle}>
+          <TextArea />
+          <Button buttonStyle={styles.buttonStyle} title='Enviar' />
+        </View>
+      </KeyboardAvoidingView>
     );
   }
 }
