@@ -6,10 +6,13 @@ import TabBarIcon from '../components/TabBarIcon';
 import FeedScreen from '../screens/FeedScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import LoginScreen from '../screens/LoginScreen';
+import PostScreen from '../screens/PostScreen';
+import CommentsScreen from '../screens/CommentsScreen';
 
 const FeedStack = createStackNavigator({
   Feed: FeedScreen,
+  Post: PostScreen,
+  Comment: CommentsScreen,
 });
 
 FeedStack.navigationOptions = {

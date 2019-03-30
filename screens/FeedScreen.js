@@ -1,13 +1,12 @@
 import React from 'react';
 import { Button } from 'react-native-elements';
-import { withNavigation } from 'react-navigation';
 import Feed from '../components/Feed';
 
 
 class FeedScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Feed',
-    headerRight: <Button onPress={ () => {navigation.navigate('Post')} } title="Criar Post" buttonStyle={{ backgroundColor: '#FDA50F', marginRight: 14 }}/>
+    headerRight: <Button onPress={ () => {navigation.push('Post')} } title="Criar Post" buttonStyle={{ backgroundColor: '#FDA50F', marginRight: 14 }}/>
   });
 
   onProfilePress() {
@@ -23,7 +22,7 @@ class FeedScreen extends React.Component {
   }
 
   onCommentsPress() {
-    this.props.navigation.navigate('Comment');
+    this.props.navigation.push('Comment');
   }
 
   render() {

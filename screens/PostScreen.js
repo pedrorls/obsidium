@@ -10,13 +10,9 @@ import Course from '../constants/Course';
 import TextArea from '../components/TextArea';
 
 class Post extends React.Component {
-  static navigationOptions = ({ navigation, screenProps }) => ({
-    title: 'Criar Post',
-    headerLeft: <Button 
-      onPress={() => {navigation.navigate('Feed')} } 
-      icon={{ name: 'arrow-back', size: 20, color: '#FDA50F' }} 
-      type='clear' />
-  });
+  static navigationOptions ={
+    title: 'Criar Post'
+  }
 
   state = {
     build: null,
