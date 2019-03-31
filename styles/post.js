@@ -22,6 +22,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#FDA50F',
     alignSelf: 'center'
   },
+  badgeContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    marginTop: 20 
+  }
 });
 
 export default styles;
