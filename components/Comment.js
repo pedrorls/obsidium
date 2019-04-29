@@ -1,15 +1,14 @@
 import React from 'react';
 import { View, Text  } from 'react-native';
-import { Avatar, Card } from 'react-native-elements';
+import { Avatar } from 'react-native-elements';
 
 import styles from '../styles/comment';
+import { CommentBalloon } from './CommentBalloon';
 
 const Comment = (props) => {
   return (
     <View style={styles.container}>
-      <View style={styles.commentStyle}>
-        <Text>{props.comment}</Text>
-      </View>
+      <CommentBalloon text={props.comment} />
       <View style={styles.headerStyle}>
         <Avatar rounded source={{ uri: `${props.photoUrl}` }} />
         <Text style={styles.nameStyle}>{props.name}</Text>
